@@ -10,7 +10,7 @@ import {
     reactRoots,
     renderList,
 } from "./injecting.jsx";
-import { defaultCommitName } from "./templates.js";
+import { renamingVisual, defaultCommitName } from "./templates.js";
 import * as fiberUtils from "./lib/fiberUtils.js";
 import { HtmlNodeFinder, ReactNodeFinder } from "./lib/nodeFinders.js";
 import UserIdLabel from "./components/userIdLabel/userIdLabel.jsx";
