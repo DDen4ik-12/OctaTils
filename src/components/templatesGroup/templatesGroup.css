@@ -1,0 +1,13 @@
+.templatesGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--stack-gap-condensed);
+    background-color: var(--bgColor-muted);
+    border: var(--borderWidth-thin, .0625rem) solid var(--borderColor-default);
+    border-radius: var(--borderRadius-medium);
+    width: 100%;
+    max-height: 130px;
+    padding: var(--base-size-8);
+    margin-block: var(--base-size-4, .25rem);
+    overflow-y: auto;
+}

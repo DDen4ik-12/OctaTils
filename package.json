@@ -1,0 +1,26 @@
+{
+  "name": "octatils",
+  "version": "1.3",
+  "description": "Userscript for the GitHub website that add some utils.",
+  "author": "Den4ik-12",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/plugin-transform-react-jsx": "^8.0.1",
+    "babel-loader": "^10.1.1",
+    "css-loader": "^7.1.4",
+    "preact": "^10.29.7",
+    "raw-loader": "^4.0.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.109.0",
+    "webpack-cli": "^7.2.1",
+    "webpack-userscript": "^3.2.3"
+  }
+}

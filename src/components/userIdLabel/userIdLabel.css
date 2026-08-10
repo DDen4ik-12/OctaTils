@@ -1,0 +1,12 @@
+.user-id-label {
+    display: block;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: var(--base-text-weight-light);
+    line-height: 20px;
+    color: var(--fgColor-muted);
+    cursor: pointer;
+}
+.user-id-label:hover {
+    color: var(--fgColor-accent);
+}

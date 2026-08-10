@@ -1,0 +1,7 @@
+.directory-row-icon {
+    width: calc(16px + 0.5rem);
+    height: calc(16px + 0.5rem);
+    margin-inline: -0.25rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+}
