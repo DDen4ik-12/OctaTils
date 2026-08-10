@@ -1,9 +1,9 @@
 <div align="center"> 
 
-# Stage Size Changer
-[![Latest release](https://img.shields.io/github/v/release/DDen4ik-12/Stage-Size-Changer?label=%E2%84%B9%20Latest%20release)](https://github.com/DDen4ik-12/Stage-Size-Changer/releases/latest)
-[![Installs of latest release](https://img.shields.io/github/downloads/DDen4ik-12/Stage-Size-Changer/latest/stageSizeChanger.user.js?label=%E2%84%B9%20Installs%40latest)](https://github.com/DDen4ik-12/Stage-Size-Changer/releases/latest)
-[![Repository stars](https://img.shields.io/github/stars/DDen4ik-12/Stage-Size-Changer?style=flat&label=%E2%AD%90%20Stars&color=yellow)](https://github.com/DDen4ik-12/Stage-Size-Changer/stargazers)
+# OctaTils
+[![Latest release](https://img.shields.io/github/v/release/DDen4ik-12/OctaTils?label=%E2%84%B9%20Latest%20release)](https://github.com/DDen4ik-12/OctaTils/releases/latest)
+[![Installs of latest release](https://img.shields.io/github/downloads/DDen4ik-12/OctaTils/latest/stageSizeChanger.user.js?label=%E2%84%B9%20Installs%40latest)](https://github.com/DDen4ik-12/OctaTils/releases/latest)
+[![Repository stars](https://img.shields.io/github/stars/DDen4ik-12/OctaTils?style=flat&label=%E2%AD%90%20Stars&color=yellow)](https://github.com/DDen4ik-12/OctaTils/stargazers)
 [![Install userscript](https://img.shields.io/badge/%F0%9F%93%A6_Install_userscript-16c60c)](#-installization)
 
 </div>
@@ -11,44 +11,18 @@
 ---
 
 ## 🔎 About:
-"Stage Size Changer" (or "StageSC") is a userscript for the [![Scratch](https://img.shields.io/badge/Scratch-4d97ff?logo=scratch&logoColor=white)](https://scratch.org/)
-[^1] and [![Scratch Lab](https://img.shields.io/badge/Scratch_Lab-4d97ff?logo=scratch&logoColor=white)](https://lab.scratch.mit.edu/) websites that allows you to change the stage size from 480×360 to something else
-
-> [!WARNING]
-> Userscript is currently in beta release and may have minor bugs!
-
-### Examples:
-| | |
-| --- | --- |
-| 360×640 stage size:[^2] | 640×480 stage size:[^3] |
-| ![Example 1](./assets/readme/example1.png) | ![Example 2](./assets/readme/example2.png) |
-| Embed with default stage size:[^4] |
-| ![Example 3](./assets/readme/example3.png) |
+"OctaTils" is a userscript for the GitHub website that add some utils and tools
 
 ## ✨ Features:
-* VM patches related to adding the ability to resize the stage
-* A button in the stage controls to open the settings:
-
-![StageSC settings](./assets/readme/settings.png)
-
-* Mouse postion display in the stage controls, which can be customized or disabled using the settings (an alternative to the "Mouse position display" addon from Scratch Addons, as it's not compatible with StageSC)
-* Resizing the stage according to TurboWarp's configuration (\_twconfig\_)
-* New category "StageSC" ![StageSC category](./assets/readme/category.png) and blocks:
-
-![StageSC blocks](./assets/readme/blocks.png)
-
-`have "Stage Size Changer"?`, `stage width`, `stage height`, `set stage size width: () height: ()`
+* Commit and pull request message templates
+* User ID label in profile
+* Customization of element icons in the directory view
 
 ## 📦 Installization:
 1. Install the userscript manager like [![Tampermonkey](https://img.shields.io/badge/Tampermonkey-00485b?logo=tampermonkey)](https://www.tampermonkey.net/)
-2. Install userscript (stageSizeChanger.**user**.js) from:
-    * [Direct link (latest release)](https://github.com/DDen4ik-12/Stage-Size-Changer/releases/latest/download/stageSizeChanger.user.js)
-    * [Releases](https://github.com/DDen4ik-12/Stage-Size-Changer/releases)
+2. Install userscript (octatils.**user**.js) from:
+    * [Direct link (latest release)](https://github.com/DDen4ik-12/OctaTils/releases/latest/download/octatils.user.js)
+    * [Releases](https://github.com/DDen4ik-12/OctaTils/releases)
   
 ## ⚓ License:
 MIT, see [LICENSE](./LICENSE)
-
-[^1]: Scratch is a project of the Scratch Foundation. It is available for free at https://scratch.org/. "Stage Size Changer" is not affiliated with the Scratch Team, or the Scratch Foundation, and it's not an official Scratch product
-[^2]: Project: [Jumper Remake](https://scratch.mit.edu/projects/1181696920) by \*me\*
-[^3]: Project: [Stage Size Detector](https://scratch.mit.edu/projects/588493413) by [TestMuffin](https://scratch.mit.edu/users/TestMuffin)
-[^4]: Project: [Random Idea Generator](https://scratch.mit.edu/projects/1108790117) by [Scratchteam](https://scratch.mit.edu/users/Scratchteam)
