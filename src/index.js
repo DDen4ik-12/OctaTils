@@ -37,6 +37,7 @@ push2RenderList(
         return { userId };
     }
 );
+
 push2RenderList(
     DirectoryRowIcon,
     new ReactNodeFinder({
@@ -67,6 +68,95 @@ push2RenderList(
         return { parent, defaultD, config };
     },
 );
+push2RenderList(
+    DirectoryRowIcon,
+    new ReactNodeFinder({
+        parentQuery: [
+            { type: "component", name: "DirectoryIcon" },
+            { type: "cssQuery", query: "svg" },
+        ],
+        addingType: "set",
+    }),
+    (parent) => {
+        const defaultD = parent.querySelector("path").getAttribute("d");
+        const item = fiberUtils.parentWithProps(
+            fiberUtils.of(parent),
+            new Set(["directory"]),
+        ).memoizedProps.directory.data;
+        const config = dirContentConfig.find((configPart) => {
+            if (
+                configPart.nameMatch &&
+                !(new RegExp(...configPart.nameMatch).test(item.name))
+            ) return false;
+            if (
+                configPart.contentType &&
+                item.contentType !== configPart.contentType
+            ) return false;
+            return true;
+        });
+
+        return { parent, defaultD, config };
+    },
+);
+push2RenderList(
+    DirectoryRowIcon,
+    new ReactNodeFinder({
+        parentQuery: [
+            { type: "component", name: "FileSubmoduleIcon" },
+        ],
+        addingType: "set",
+    }),
+    (parent) => {
+        const defaultD = parent.querySelector("path").getAttribute("d");
+        const item = fiberUtils.parentWithProps(
+            fiberUtils.of(parent),
+            new Set(["file"]),
+        ).memoizedProps.file.data;
+        const config = dirContentConfig.find((configPart) => {
+            if (
+                configPart.nameMatch &&
+                !(new RegExp(...configPart.nameMatch).test(item.name))
+            ) return false;
+            if (
+                configPart.contentType &&
+                item.contentType !== configPart.contentType
+            ) return false;
+            return true;
+        });
+
+        return { parent, defaultD, config };
+    },
+);
+push2RenderList(
+    DirectoryRowIcon,
+    new ReactNodeFinder({
+        parentQuery: [
+            { type: "component", name: "FileIcon" },
+        ],
+        addingType: "set",
+    }),
+    (parent) => {
+        const defaultD = parent.querySelector("path").getAttribute("d");
+        const item = fiberUtils.parentWithProps(
+            fiberUtils.of(parent),
+            new Set(["file"]),
+        ).memoizedProps.file.data;
+        const config = dirContentConfig.find((configPart) => {
+            if (
+                configPart.nameMatch &&
+                !(new RegExp(...configPart.nameMatch).test(item.name))
+            ) return false;
+            if (
+                configPart.contentType &&
+                item.contentType !== configPart.contentType
+            ) return false;
+            return true;
+        });
+
+        return { parent, defaultD, config };
+    },
+);
+
 push2RenderList(
     TemplatesGroup,
     new ReactNodeFinder({

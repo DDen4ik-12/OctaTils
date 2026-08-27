@@ -4,6 +4,23 @@ import { colorIsBright } from "../../lib/utils.js";
 
 import * as styles from "./directoryRowIcon.css";
 
+const iconPromises = {};
+
+const getIcon = async (icon) => {
+    const saveKey = `us-octatils:simple-icons:${icon}`;
+    if (saveKey in sessionStorage) {
+        return sessionStorage[saveKey];
+    } else {
+        return GM.xmlHttpRequest({
+            url: `https://simpleicons.org/icons/${icon}.svg`,
+        })
+            .then((res) => {
+                sessionStorage.setItem(saveKey, res.responseText);
+                return res.responseText;
+            });
+    }
+};
+
 function DirectoryRowIcon({ parent, defaultD, config }) {
     const [d, setD] = useState(null);
 
@@ -17,18 +34,9 @@ function DirectoryRowIcon({ parent, defaultD, config }) {
         });
 
         if (!config?.icon || !/[a-z0-9]+/.test(config.icon)) return;
-        const saveKey = `us-octatils:simple-icons:${config.icon}`;
-        let iconSvg;
-        if (saveKey in sessionStorage) {
-            iconSvg = sessionStorage[saveKey];
-        } else {
-            iconSvg = (
-                await GM.xmlHttpRequest({
-                    url: `https://simpleicons.org/icons/${config.icon}.svg`,
-                })
-            ).responseText;
-            sessionStorage.setItem(saveKey, iconSvg);
-        }
+        const iconSvg = config.icon in iconPromises
+            ? await iconPromises[config.icon]
+            : await (iconPromises[config.icon] = getIcon(config.icon));
 
         const wrapper = document.createElement("div");
         wrapper.innerHTML = iconSvg;
