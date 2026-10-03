@@ -1,4 +1,3 @@
-import Preact from "preact";
 import { useState } from "preact/hooks";
 import {
     CommitTemplate,

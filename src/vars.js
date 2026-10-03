@@ -5,7 +5,7 @@ const REACT_ROOT_QUERY =
     '[data-component="Portal"] > *, [data-target="react-app.reactRoot"], [data-target="react-partial.reactRoot"]';
 const PROFILE_NAMES_QUERY = ".js-profile-editable-replace h1.vcard-names";
 const PROFILE_AVATAR_QUERY = ".js-profile-editable-replace img.avatar";
-const COMMIT_MSG_INPUT_QUERY = 'span[class*="WebCommitDialog-module__commitMessageInput"]';
+const COMMIT_MSG_INPUT_QUERY = 'span[class*="WebCommitDialog-module_"][class*="_commitMessageInput"]';
 const PR_MSG_INPUT_QUERY = '[data-testid="mergebox-border-container"] .TextInput-wrapper';
 
 export {

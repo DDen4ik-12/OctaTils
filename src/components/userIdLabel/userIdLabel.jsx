@@ -1,5 +1,3 @@
-import Preact from "preact";
-
 import * as styles from "./userIdLabel.css";
 
 function UserIdLabel({ userId }) {

@@ -2,24 +2,17 @@ import { reactRoots } from "../injecting.jsx";
 import * as fiberUtils from "./fiberUtils.js";
 
 class HtmlNodeFinder {
-    constructor({ parentQuery, addingType = "set" }) {
+    constructor(parentQuery) {
         this.parentQuery = parentQuery;
-        this.addingType = addingType;
     }
     find() {
-        const findedTargets = document.querySelectorAll(this.parentQuery);
-        return [...findedTargets].map((findedTarget) => ({
-            node: findedTarget,
-            addingType: this.addingType,
-        }));
+        return [...document.querySelectorAll(this.parentQuery)];
     }
 }
 
 class ReactNodeFinder {
-    constructor({ parentQuery, addingType = "set", reactRoots }) {
+    constructor(parentQuery) {
         this.parentQuery = parentQuery;
-        this.addingType = addingType;
-        this.reactRoots = reactRoots;
     }
     _findIter(findedTargets, target, i) {
         if (this.parentQuery[i].type === "component") {
@@ -51,15 +44,12 @@ class ReactNodeFinder {
     }
     find() {
         let findedTargets = reactRoots.values().reduce((findedTargets, { root }) =>
-            this._findIter(findedTargets, root, 0), []);
+            root === null ? findedTargets : this._findIter(findedTargets, root, 0), []);
         for (let i = 1; i < this.parentQuery.length; i++) {
             findedTargets = findedTargets.reduce((findedTargets, target) =>
                 this._findIter(findedTargets, target, i), []);
         }
-        return findedTargets.map((findedTarget) => ({
-            node: findedTarget,
-            addingType: this.addingType,
-        }));
+        return findedTargets;
     }
 }
 

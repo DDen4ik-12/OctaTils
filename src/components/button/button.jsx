@@ -1,4 +1,3 @@
-import Preact from "preact";
 import classNames from "../../lib/classNames.js";
 
 import * as styles from "./button.css";

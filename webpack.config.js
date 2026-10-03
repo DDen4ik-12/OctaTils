@@ -46,7 +46,7 @@ export default {
         new UserscriptPlugin({
             headers: {
                 name: "OctaTils",
-                version: "1.4",
+                version: "1.5",
                 author: "Den4ik-12",
                 description: "Userscript for the GitHub website that add some utils",
                 match: "https://github.com/*",

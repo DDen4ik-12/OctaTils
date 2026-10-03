@@ -1,4 +1,3 @@
-import Preact from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { colorIsBright } from "../../lib/utils.js";
 

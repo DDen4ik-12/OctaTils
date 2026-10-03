@@ -2,3 +2,7 @@
 npm-*
 /build
 /.vscode
+
+# Temporary Ignore
+/src/lib/replacerRoots.js
+/src/lib/store.js

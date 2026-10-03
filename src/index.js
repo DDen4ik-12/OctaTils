@@ -7,6 +7,7 @@ import {
 import {
     push2RenderList,
     injectorObsvrClbk,
+    //store,
     reactRoots,
     renderList,
 } from "./injecting.jsx";
@@ -26,10 +27,8 @@ const dirContentConfig = GM_getValue("dirContent", []);
 
 push2RenderList(
     UserIdLabel,
-    new HtmlNodeFinder({
-        parentQuery: PROFILE_NAMES_QUERY,
-        addingType: "append",
-    }),
+    new HtmlNodeFinder(PROFILE_NAMES_QUERY),
+    "append",
     () => {
         const avatar = document.querySelector(PROFILE_AVATAR_QUERY);
         const avatarUrlRegex = /^https:\/\/avatars.githubusercontent.com\/u\/(\d+)/;
@@ -40,13 +39,11 @@ push2RenderList(
 
 push2RenderList(
     DirectoryRowIcon,
-    new ReactNodeFinder({
-        parentQuery: [
-            { type: "component", name: "DirectoryRow" },
-            { type: "cssQuery", query: "svg" },
-        ],
-        addingType: "set",
-    }),
+    new ReactNodeFinder([
+        { type: "component", name: "DirectoryRow" },
+        { type: "cssQuery", query: "svg" },
+    ]),
+    "set",
     (parent) => {
         const defaultD = parent.querySelector("path").getAttribute("d");
         const item = fiberUtils.parentWithProps(
@@ -70,13 +67,11 @@ push2RenderList(
 );
 push2RenderList(
     DirectoryRowIcon,
-    new ReactNodeFinder({
-        parentQuery: [
-            { type: "component", name: "DirectoryIcon" },
-            { type: "cssQuery", query: "svg" },
-        ],
-        addingType: "set",
-    }),
+    new ReactNodeFinder([
+        { type: "component", name: "DirectoryIcon" },
+        { type: "cssQuery", query: "svg" },
+    ]),
+    "set",
     (parent) => {
         const defaultD = parent.querySelector("path").getAttribute("d");
         const item = fiberUtils.parentWithProps(
@@ -100,12 +95,10 @@ push2RenderList(
 );
 push2RenderList(
     DirectoryRowIcon,
-    new ReactNodeFinder({
-        parentQuery: [
-            { type: "component", name: "FileSubmoduleIcon" },
-        ],
-        addingType: "set",
-    }),
+    new ReactNodeFinder([
+        { type: "component", name: "FileSubmoduleIcon" },
+    ]),
+    "set",
     (parent) => {
         const defaultD = parent.querySelector("path").getAttribute("d");
         const item = fiberUtils.parentWithProps(
@@ -129,12 +122,10 @@ push2RenderList(
 );
 push2RenderList(
     DirectoryRowIcon,
-    new ReactNodeFinder({
-        parentQuery: [
-            { type: "component", name: "FileIcon" },
-        ],
-        addingType: "set",
-    }),
+    new ReactNodeFinder([
+        { type: "component", name: "FileIcon" },
+    ]),
+    "set",
     (parent) => {
         const defaultD = parent.querySelector("path").getAttribute("d");
         const item = fiberUtils.parentWithProps(
@@ -159,14 +150,12 @@ push2RenderList(
 
 push2RenderList(
     TemplatesGroup,
-    new ReactNodeFinder({
-        parentQuery: [
-            { type: "component", name: "WebCommitDialog" },
-            { type: "component", name: "Dialog" },
-            { type: "cssQuery", query: COMMIT_MSG_INPUT_QUERY },
-        ],
-        addingType: "before",
-    }),
+    new ReactNodeFinder([
+        { type: "component", name: "WebCommitDialog" },
+        { type: "component", name: "Dialog" },
+        { type: "cssQuery", query: COMMIT_MSG_INPUT_QUERY },
+    ]),
+    "before",
     (parent) => {
         const commitInput = parent.querySelector("#commit-message-input");
         const commitDialogNodeProps = fiberUtils.parentWithProps(
@@ -202,13 +191,11 @@ push2RenderList(
 );
 push2RenderList(
     TemplatesGroup,
-    new ReactNodeFinder({
-        parentQuery: [
-            { type: "component", name: "MergeBox" },
-            { type: "cssQuery", query: PR_MSG_INPUT_QUERY },
-        ],
-        addingType: "before",
-    }),
+    new ReactNodeFinder([
+        { type: "component", name: "MergeBox" },
+        { type: "cssQuery", query: PR_MSG_INPUT_QUERY },
+    ]),
+    "before",
     (parent) => {
         const commitInput = parent.querySelector("input");
         const commitInputNodeProps = fiberUtils.parentWithProps(
@@ -251,6 +238,7 @@ push2RenderList(
 const injectorObsvr = new MutationObserver(injectorObsvrClbk);
 injectorObsvr.observe(document.documentElement, { childList: true, subtree: true });
 unsafeWindow.usOctatils = {
+    //store,
     get reactRoots() {
         return reactRoots;
     },
@@ -260,4 +248,20 @@ unsafeWindow.usOctatils = {
     fiberUtils,
     HtmlNodeFinder,
     ReactNodeFinder,
+    /*
+    getOctatilsMeta: async () => {
+        const res = await fetch(
+            `https://api.github.com/repos/${location.pathname.split("/")[1]}/${location.pathname.split("/")[2]}/contents/` +
+            [...location.pathname.split("/").toSpliced(0, 5), ".octatilsmeta"].join("/") +
+            (location.pathname.split("/")[3] == "tree" ? `?ref=${location.pathname.split("/")[4]}` : "")
+        );
+        const fileData = await res.json();
+        if (fileData.type !== "file") return {};
+        try {
+            return JSON.parse(atob(fileData.content));
+        } catch {
+            return {};
+        }
+    },
+    */
 };
